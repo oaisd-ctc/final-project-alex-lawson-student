@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public new Rigidbody2D RD;
+    public Rigidbody2D RD;
     public SpriteRenderer SR;
     Animator animator;
     public float moveSpeed = 5f;
