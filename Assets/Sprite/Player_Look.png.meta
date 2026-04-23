@@ -127,12 +127,12 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1024
+        y: 1031
         width: 800
-        height: 1024
+        height: 1017
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 0, y: 0, z: 2, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -149,11 +149,11 @@ TextureImporter:
         serializedVersion: 2
         x: 800
         y: 1024
-        width: 800
+        width: 795
         height: 1024
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 3, y: 5, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -168,13 +168,13 @@ TextureImporter:
       name: Player (3)_2
       rect:
         serializedVersion: 2
-        x: 1600
+        x: 1602
         y: 1024
-        width: 800
+        width: 798
         height: 1024
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 0, y: 2, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -192,10 +192,10 @@ TextureImporter:
         x: 0
         y: 0
         width: 800
-        height: 1024
+        height: 1022
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 0, y: 0, z: 2, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -212,11 +212,11 @@ TextureImporter:
         serializedVersion: 2
         x: 800
         y: 0
-        width: 800
+        width: 795
         height: 1024
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 3, y: 0, z: 0, w: 2}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -237,7 +237,7 @@ TextureImporter:
         height: 1024
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 2, y: 0, z: 0, w: 2}
       outline: []
       physicsShape: []
       tessellationDetail: 0
