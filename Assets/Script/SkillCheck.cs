@@ -4,21 +4,20 @@ using UnityEngine;
 
 public class SkillCheck : MonoBehaviour
 {
+    [SerializeField] Interact it;
     public GameObject Bar;
     public GameObject Pin;
-    [SerializeField] Interact it;
-    public float speed = .1f;
-    Vector3 pos;
     float direction = 1f;
-    bool Check = false;
+    public float speed = .1f;
     public bool talkable = true;
-    // Start is called before the first frame update
+    bool Check = false;
+    Vector3 pos;
+
     void Start()
     {
         pos = Pin.transform.localPosition;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (it.talk)

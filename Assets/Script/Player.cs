@@ -5,11 +5,13 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] Interact it;
     public Rigidbody2D RD;
     public SpriteRenderer SR;
-    Animator animator;
     public float moveSpeed = 5f;
-    [SerializeField] Interact it;
+    Animator animator;
+    
+    
 
 
     // Start is called before the first frame update

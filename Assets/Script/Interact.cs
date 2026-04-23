@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Interact : MonoBehaviour
 {
-    public bool talk = false;
-    public Animator animator;
     [SerializeField] SkillCheck sc;
+    public Animator animator;
+    public bool talk = false;
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("talkble"))
