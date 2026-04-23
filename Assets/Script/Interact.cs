@@ -5,14 +5,14 @@ using UnityEngine;
 public class Interact : MonoBehaviour
 {
     [SerializeField] SkillCheck sc;
-    public Animator animator;
     public bool talk = false;
-    
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("talkble"))
         {
-            animator.SetBool("Yappa", true);
+            Animator anim = other.gameObject.GetComponentInParent<Animator>();
+            anim.SetBool("Yappa", true);
             talk = true;
         }
     }
@@ -20,16 +20,20 @@ public class Interact : MonoBehaviour
     {
         if (sc.talkable == false)
         {
-            animator.SetBool("Yappa", false);
+            Animator anim = other.gameObject.GetComponentInParent<Animator>();
+            anim.SetBool("Yappa", false);
             other.gameObject.tag = "NPC";
             talk = false;
+
+            sc.talkable = true;
         }
     }
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("talkble"))
         {
-            animator.SetBool("Yappa", false);
+            Animator anim = other.gameObject.GetComponentInParent<Animator>();
+            anim.SetBool("Yappa", false);
             talk = false;
         }
     }
