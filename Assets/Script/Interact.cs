@@ -25,6 +25,7 @@ public class Interact : MonoBehaviour
             other.gameObject.tag = "NPC";
             talk = false;
 
+            sc.Check = false;
             sc.talkable = true;
         }
     }

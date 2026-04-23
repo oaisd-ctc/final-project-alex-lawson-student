@@ -6,10 +6,10 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] Interact it;
-    public Rigidbody2D RD;
     public SpriteRenderer SR;
+    public Rigidbody2D RD;
+    public Animator animator;
     public float moveSpeed = 5f;
-    Animator animator;
     
     
 
