@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SkillCheck : MonoBehaviour
@@ -9,12 +11,9 @@ public class SkillCheck : MonoBehaviour
     public GameObject Pin;
     public Transform Pin_T;
     public Transform Green;
-    public Transform RedUp;
-    public Transform RedDown;
+    public const float bar1 = 0.1f, bar2 = 0.42f, bar3 = 0.82f;
     float direction = 1f;
     public float greenT;
-    public float RedLow;
-    public float RedHigh;
     public float speed = 3.5f;
     public bool talkable = true;
     public bool Check = false;
@@ -30,9 +29,40 @@ public class SkillCheck : MonoBehaviour
         if (it.talk == true)
         {
             Bar.SetActive(true);
+            Pin.transform.localPosition = pos;
+            
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                float greenT = math.abs(pos.x);
+                Check = true;
+                talkable = false;
+
+                print(Pin_T.position + "Pin");
+                print(Green.position + "Green");
+
+                if (greenT <= bar1)
+                {
+                    print(greenT);
+                    print("1");
+                }
+                else if(greenT <= bar2)
+                {
+                    print(greenT);
+                    print("2");
+                }
+                else if(greenT <= bar3)
+                {
+                    print(greenT);
+                    print("3");
+                }
+                else
+                {
+                    print(greenT);
+                    print("4");
+                }
+            }
 
             //Position & movement
-            pos = Pin.transform.localPosition;
             if (Check == false)
             {
                 pos.x += direction * speed * Time.deltaTime;
@@ -46,34 +76,6 @@ public class SkillCheck : MonoBehaviour
             {
                 pos.x = -1.2f;
                 direction = 1f;
-            }
-
-            Pin.transform.localPosition = pos;
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                Check = true;
-                talkable = false;
-
-                greenT = Vector3.Distance(Pin_T.position, Green.position);
-                RedLow = Vector3.Distance(Pin_T.position, RedDown.position);
-                RedHigh = Vector3.Distance(Pin_T.position, RedUp.position);
-
-                if(RedLow > RedHigh)
-                {
-                    print("1");
-                    if (RedLow > greenT)
-                    {
-                        print("2");
-                    }
-                }
-                else if (RedLow < RedHigh)
-                {
-                    print("1");
-                    if (RedHigh > greenT)
-                    {
-                        print("2");
-                    }
-                }
             }
         }
         else
