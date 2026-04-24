@@ -7,10 +7,9 @@ using UnityEngine;
 public class SkillCheck : MonoBehaviour
 {
     [SerializeField] Interact it;
-    public GameObject Bar;
-    public GameObject Pin;
-    public Transform Pin_T;
-    public Transform Green;
+    [SerializeField] Embarrassment em;
+    public GameObject Bar, Pin;
+    public Transform Pin_T, Green;
     public const float bar1 = 0.1f, bar2 = 0.42f, bar3 = 0.82f;
     float direction = 1f;
     public float greenT;
@@ -42,23 +41,19 @@ public class SkillCheck : MonoBehaviour
 
                 if (greenT <= bar1)
                 {
-                    print(greenT);
-                    print("1");
+                    em.EmLevel = 0;
                 }
                 else if(greenT <= bar2)
                 {
-                    print(greenT);
-                    print("2");
+                    em.EmLevel = 1;
                 }
                 else if(greenT <= bar3)
                 {
-                    print(greenT);
-                    print("3");
+                    em.EmLevel = 2;
                 }
                 else
                 {
-                    print(greenT);
-                    print("4");
+                    em.EmLevel = 3;
                 }
             }
 
