@@ -10,10 +10,11 @@ public class SkillCheck : MonoBehaviour
     [SerializeField] Embarrassment em;
     public GameObject Bar, Pin;
     public Transform Pin_T, Green;
+    public Sprite EmPin, RzPin, nomPin;
     public const float bar1 = 0.1f, bar2 = 0.42f, bar3 = 0.82f;
     float direction = 1f;
     public float greenT;
-    public float speed = 3.5f;
+    public float speed = 0f;
     public bool talkable = true;
     public bool Check = false;
     Vector3 pos;
@@ -25,6 +26,7 @@ public class SkillCheck : MonoBehaviour
 
     void Update()
     {
+        SpriteRenderer sr = Pin.GetComponent<SpriteRenderer>();
         if (it.talk == true)
         {
             Bar.SetActive(true);
@@ -36,24 +38,27 @@ public class SkillCheck : MonoBehaviour
                 Check = true;
                 talkable = false;
 
-                print(Pin_T.position + "Pin");
-                print(Green.position + "Green");
-
                 if (greenT <= bar1)
                 {
                     em.EmLevel = 0;
+                    sr.sprite = RzPin;
+
+
                 }
                 else if(greenT <= bar2)
                 {
                     em.EmLevel = 1;
+                    sr.sprite = EmPin;
                 }
                 else if(greenT <= bar3)
                 {
                     em.EmLevel = 2;
+                    sr.sprite = EmPin;
                 }
                 else
                 {
                     em.EmLevel = 3;
+                    sr.sprite = EmPin;
                 }
             }
 
@@ -75,6 +80,7 @@ public class SkillCheck : MonoBehaviour
         }
         else
         {
+            sr.sprite = nomPin;
             Bar.SetActive(false);
         }
     }
