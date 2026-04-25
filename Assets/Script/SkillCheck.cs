@@ -10,7 +10,6 @@ public class SkillCheck : MonoBehaviour
     [SerializeField] Embarrassment em;
     public GameObject Bar, Pin;
     public Transform Pin_T, Green;
-    public Sprite EmPin, RzPin, nomPin;
     public const float bar1 = 0.1f, bar2 = 0.42f, bar3 = 0.82f;
     float direction = 1f;
     public float greenT;
@@ -41,24 +40,20 @@ public class SkillCheck : MonoBehaviour
                 if (greenT <= bar1)
                 {
                     em.EmLevel = 0;
-                    sr.sprite = RzPin;
 
 
                 }
                 else if(greenT <= bar2)
                 {
                     em.EmLevel = 1;
-                    sr.sprite = EmPin;
                 }
                 else if(greenT <= bar3)
                 {
                     em.EmLevel = 2;
-                    sr.sprite = EmPin;
                 }
                 else
                 {
                     em.EmLevel = 3;
-                    sr.sprite = EmPin;
                 }
             }
 
@@ -80,7 +75,6 @@ public class SkillCheck : MonoBehaviour
         }
         else
         {
-            sr.sprite = nomPin;
             Bar.SetActive(false);
         }
     }
