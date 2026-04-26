@@ -6,30 +6,38 @@ using UnityEngine;
 
 public class Level : MonoBehaviour
 {
+    public GameObject LE;
+    public TextMeshProUGUI TextT;
     public Animator anim;
     public float LvlTime = 25;
-    public float MaxSpeed = 5;
+    public float MaxSpeed = 10;
     public float mag = 5;
+    float OLtime;
     float LvlTimeP;
-    
-    public TextMeshProUGUI TextT;
-    // Start is called before the first frame update
-    void Start()
+
+    private void Start()
     {
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        print(anim.speed);
         TextT.text = (LvlTime-LvlTimeP).ToString("F2");
 
 
-        if (LvlTimeP < LvlTime)
+        if (LvlTimeP <= LvlTime)
         {
             LvlTimeP += Time.deltaTime;
 
+            OLtime = (MaxSpeed * math.pow(LvlTimeP, mag)) / math.pow(LvlTime, mag) + 0.2f;
             anim.speed = (MaxSpeed * math.pow(LvlTimeP, mag)) / math.pow(LvlTime, mag) + 0.2f;
+            LE.SetActive(false);
+        }
+        else
+        {
+            LvlTimeP = LvlTime;
+            LE.SetActive(true);
         }
     }
 }
