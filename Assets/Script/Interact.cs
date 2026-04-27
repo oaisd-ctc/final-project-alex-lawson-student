@@ -9,7 +9,8 @@ public class Interact : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("talkble"))
+        sc.talking = false;
+        if (other.CompareTag("talkble") && sc.talking == false)
         {
             Animator anim = other.gameObject.GetComponentInParent<Animator>();
             anim.SetBool("Yappa", true);

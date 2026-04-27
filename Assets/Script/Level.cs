@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -7,12 +8,10 @@ using UnityEngine;
 public class Level : MonoBehaviour
 {
     public GameObject LE;
-    public TextMeshProUGUI TextT;
+    [SerializeField] SkillCheck sc;
+    public TextMeshProUGUI WT, Cmax, HP;
     public Animator anim;
-    public float LvlTime = 25;
-    public float MaxSpeed = 10;
-    public float mag = 5;
-    float OLtime;
+    public float LvlTime = 25, MaxSpeed = 10, mag = 5, HpT = 0f;
     float LvlTimeP;
 
     private void Start()
@@ -23,14 +22,13 @@ public class Level : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        TextT.text = (LvlTime-LvlTimeP).ToString("F2");
+        WT.text = (LvlTime-LvlTimeP).ToString("F2");
 
 
         if (LvlTimeP <= LvlTime && LvlTime != 0)
         {
             LvlTimeP += Time.deltaTime;
 
-            OLtime = (MaxSpeed * math.pow(LvlTimeP, mag)) / math.pow(LvlTime, mag) + 0.2f;
             anim.speed = (MaxSpeed * math.pow(LvlTimeP, mag)) / math.pow(LvlTime, mag) + 0.2f;
             LE.SetActive(false);
         }
@@ -39,6 +37,26 @@ public class Level : MonoBehaviour
             LvlTimeP = 0;
             LvlTime = 0;
             LE.SetActive(true);
+
+            HP.text = sc.HP.ToString("") + " / " + HpT;
+
+            float[] myArray = {sc.HCg, sc.HCy, sc.HCo, sc.HCr};
+
+            switch(System.Array.IndexOf(myArray, Mathf.Max(myArray)))
+                {
+                case 0:
+                    Cmax.text = "Green";
+                    break;
+                case 1:
+                    Cmax.text = "Yellow";
+                    break;
+                case 2:
+                    Cmax.text = "Orange";
+                    break;
+                case 3:
+                    Cmax.text = "Red";
+                    break;
+            }
         }
     }
 }

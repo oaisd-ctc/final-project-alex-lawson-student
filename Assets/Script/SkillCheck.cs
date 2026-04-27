@@ -13,9 +13,8 @@ public class SkillCheck : MonoBehaviour
     public const float bar1 = 0.1f, bar2 = 0.42f, bar3 = 0.82f;
     float direction = 1f;
     public float greenT;
-    public float speed = 0f;
-    public bool talkable = true;
-    public bool Check = false;
+    public float speed = 0f, HP = 0f, HCg = 0f, HCy = 0f, HCo = 0f, HCr = 0f;
+    public bool Check = false, talkable = true, talking = true;
     Vector3 pos;
 
     void Start()
@@ -26,13 +25,15 @@ public class SkillCheck : MonoBehaviour
     void Update()
     {
         SpriteRenderer sr = Pin.GetComponent<SpriteRenderer>();
-        if (it.talk == true)
+        if (it.talk == true && talking == false)
         {
             Bar.SetActive(true);
             Pin.transform.localPosition = pos;
             
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                talking = true;
+                HP++;
                 float greenT = math.abs(pos.x);
                 Check = true;
                 talkable = false;
@@ -40,21 +41,31 @@ public class SkillCheck : MonoBehaviour
                 if (greenT <= bar1)
                 {
                     em.EmLevel = 0;
-
-
+                    HCg++;
                 }
                 else if(greenT <= bar2)
                 {
                     em.EmLevel = 1;
+                    HCy++;
+                    
                 }
                 else if(greenT <= bar3)
                 {
                     em.EmLevel = 2;
+                    HCo++;
                 }
                 else
                 {
                     em.EmLevel = 3;
+                    HCr++;
+
                 }
+                print(HP + "pep");
+                print(HCg + "Green");
+                print(HCy + "Yellow");
+                print(HCo + "Orange");
+                print(HCr + "Red");
+
             }
 
             //Position & movement
