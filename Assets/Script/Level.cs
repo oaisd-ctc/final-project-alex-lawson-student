@@ -26,7 +26,7 @@ public class Level : MonoBehaviour
         TextT.text = (LvlTime-LvlTimeP).ToString("F2");
 
 
-        if (LvlTimeP <= LvlTime)
+        if (LvlTimeP <= LvlTime && LvlTime != 0)
         {
             LvlTimeP += Time.deltaTime;
 
@@ -36,7 +36,8 @@ public class Level : MonoBehaviour
         }
         else
         {
-            LvlTimeP = LvlTime;
+            LvlTimeP = 0;
+            LvlTime = 0;
             LE.SetActive(true);
         }
     }
