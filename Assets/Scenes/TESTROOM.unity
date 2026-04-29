@@ -296,16 +296,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeac531d86da62142856efd1105afc13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LE: {fileID: 1017608417}
+  scs: {fileID: 168489466}
+  it: {fileID: 168489465}
+  em: {fileID: 168489467}
   sc: {fileID: 168489466}
+  pr: {fileID: 168489459}
+  LE: {fileID: 1017608417}
+  pl: {fileID: 1894051239}
   WT: {fileID: 227144342}
   Cmax: {fileID: 853165750}
   HP: {fileID: 1267931496}
-  anim: {fileID: 393166090}
+  animWT: {fileID: 393166090}
+  animE: {fileID: 1017608420}
   LvlTime: 35
   MaxSpeed: 5
   mag: 5
   HpT: 6
+  end: 0
 --- !u!1 &11208489
 GameObject:
   m_ObjectHideFlags: 0
@@ -2918,6 +2925,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   it: {fileID: 168489465}
+  level: {fileID: 3198960}
   SR: {fileID: 1894051241}
   RD: {fileID: 168489463}
   animator: {fileID: 0}
@@ -3020,6 +3028,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   it: {fileID: 168489465}
   em: {fileID: 168489467}
+  level: {fileID: 3198960}
   Bar: {fileID: 244633854}
   Pin: {fileID: 484583808}
   Pin_T: {fileID: 484583809}
@@ -3048,6 +3057,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pr: {fileID: 168489459}
   sc: {fileID: 168489466}
+  level: {fileID: 3198960}
   UIEm: {fileID: 789308788}
   Em0: {fileID: -797335246, guid: 791166182b5e0cb4886277b286e2947f, type: 3}
   Em1: {fileID: -1733713296, guid: 791166182b5e0cb4886277b286e2947f, type: 3}
@@ -13400,6 +13410,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1017608419}
   - component: {fileID: 1017608418}
+  - component: {fileID: 1017608420}
   m_Layer: 0
   m_Name: elevator down
   m_TagString: Untagged
@@ -13474,6 +13485,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 168489462}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1017608420
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017608417}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0fc271333fc6dd5459c648943f289ee4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1040435374
 GameObject:
   m_ObjectHideFlags: 0
