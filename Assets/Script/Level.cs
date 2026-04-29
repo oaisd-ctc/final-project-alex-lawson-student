@@ -82,6 +82,7 @@ public class Level : MonoBehaviour
                 HP.text = "";
                 if (animE.GetCurrentAnimatorStateInfo(0).normalizedTime > 1f)
                 {
+                    SceneManager.LoadScene(0);
                     LE.SetActive(false);
                 }
             }
@@ -93,6 +94,7 @@ public class Level : MonoBehaviour
                 HP.text = "";
                 if (animE.GetCurrentAnimatorStateInfo(0).normalizedTime > 1f)
                 {
+                    SceneManager.LoadScene(1);
                     LE.SetActive(false);
                 }
             }
