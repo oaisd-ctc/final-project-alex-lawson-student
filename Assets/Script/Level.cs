@@ -51,8 +51,7 @@ public class Level : MonoBehaviour
                 animWT.speed = 0;
                 LvlTimeP = 0;
                 LvlTime = 0;
-            }
-            {
+            
                 pl.SetActive(false);
                 HP.text = scs.HP.ToString("") + " / " + HpT;
 
