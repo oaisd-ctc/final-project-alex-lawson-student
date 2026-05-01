@@ -107,7 +107,7 @@ public class Level : MonoBehaviour
                         HPN.text = "";
                         info.text = "";
                         CmaxN.text = "";
-                        SceneManager.LoadScene(0);
+                        SceneManager.LoadScene(1);
 
                     }
 
@@ -122,7 +122,7 @@ public class Level : MonoBehaviour
                 HP.text = "";
                 if (animE.GetCurrentAnimatorStateInfo(0).normalizedTime > 1f)
                 {
-                    SceneManager.LoadScene(0);
+                    SceneManager.LoadScene(1);
                     LE.SetActive(false);
                 }
             }
