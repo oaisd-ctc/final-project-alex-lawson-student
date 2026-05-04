@@ -311,7 +311,7 @@ MonoBehaviour:
   info: {fileID: 2131136605}
   animWT: {fileID: 393166090}
   animE: {fileID: 1017608420}
-  LvlTime: 35
+  LvlTime: 40
   MaxSpeed: 5
   mag: 5
   HpT: 5
