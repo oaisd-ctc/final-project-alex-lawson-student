@@ -64,7 +64,7 @@ public class Level : MonoBehaviour
                 pl.SetActive(false);
                 HPN.text = "People Talked";
                 CmaxN.text = "Best color";
-                info.text = "[Space for next Level] [Esc to main menu]";
+                info.text = "Space for next Level        Esc to main menu";
                 HP.text = scs.HP.ToString("") + " / " + HpT;
 
                 float[] myArray = { scs.HCg, scs.HCy, scs.HCo, scs.HCr };
