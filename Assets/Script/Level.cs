@@ -16,27 +16,17 @@ public class Level : MonoBehaviour
     public TextMeshProUGUI WT, Cmax, HP, HPN, CmaxN, info;
     public Animator animWT;
     public Animator animE;
-    public float LvlTime = 25, MaxSpeed = 10, mag = 5, HpT = 0f, Tutoriallevel;
+    public float LvlTime = 25, MaxSpeed = 10, mag = 5, HpT = 0f;
     public bool end = false;
     float LvlTimeP;
 
     private void Start()
     {
-        int currentIndex = SceneManager.GetActiveScene().buildIndex;
         HPN.text = "";
         CmaxN.text = "";
         HP.text = "";
         Cmax.text = "";
         info.text = "";
-
-        if (currentIndex > 0)
-        {
-            Tutoriallevel = 5;
-        }
-        else
-        {
-            Tutoriallevel = 0;
-        }
     }
 
     // Update is called once per frame
@@ -46,24 +36,21 @@ public class Level : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape) && end == false)
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(0);
         }
 
-        if (Tutoriallevel == 5)
+        if (LvlTimeP <= LvlTime && LvlTime != 0)
         {
-            LE.SetActive(false);
-            if (LvlTimeP <= LvlTime && LvlTime != 0)
-            {
-                LvlTimeP += Time.deltaTime;
+            LvlTimeP += Time.deltaTime;
 
-                animWT.speed = (MaxSpeed * math.pow(LvlTimeP, mag)) / math.pow(LvlTime, mag) + 0.2f;
-            }
-            else
-            {
-                LE.SetActive(true);
-                animE.SetBool("EU", false);
-                animE.SetBool("ED", true);
-            }
+            animWT.speed = (MaxSpeed * math.pow(LvlTimeP, mag)) / math.pow(LvlTime, mag) + 0.2f;
+            LE.SetActive(false);
+        }
+        else
+        {
+            LE.SetActive(true);
+            animE.SetBool("EU", false);
+            animE.SetBool("ED", true);
 
 
             if (animE.GetCurrentAnimatorStateInfo(0).normalizedTime > 1f && end == false)
@@ -73,7 +60,7 @@ public class Level : MonoBehaviour
                 animWT.speed = 0;
                 LvlTimeP = 0;
                 LvlTime = 0;
-
+            
                 pl.SetActive(false);
                 HPN.text = "People Talked";
                 CmaxN.text = "Best color";
@@ -98,7 +85,7 @@ public class Level : MonoBehaviour
                         break;
                 }
             }
-            if (Input.GetKeyDown(KeyCode.Space))
+            if(Input.GetKeyDown(KeyCode.Space))
             {
                 animE.SetBool("ED", false);
                 animE.SetBool("EU", true);
@@ -138,9 +125,8 @@ public class Level : MonoBehaviour
                     SceneManager.LoadScene(1);
                     LE.SetActive(false);
                 }
-
             }
+
         }
     }
 }
-
