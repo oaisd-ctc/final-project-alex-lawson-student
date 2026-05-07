@@ -7,6 +7,8 @@ using UnityEngine;
 public class Tutorial : MonoBehaviour
 {
     [SerializeField] Level level;
+    [SerializeField] Player pr;
+    [SerializeField] Interact it;
     public TextMeshProUGUI Tutortext, tmT;
     public GameObject tmG, emG;
     private float timetalk = 0;
@@ -24,7 +26,10 @@ public class Tutorial : MonoBehaviour
     }
     private void Update()
     {
-        if(level.end == false)
+        gow = pr.moved;
+        goT = it.talked;
+
+        if (level.end == false)
         {
             tmT.text = "";
             if (goT == true && gow == true)

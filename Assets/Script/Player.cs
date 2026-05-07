@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     public Rigidbody2D RD;
     public Animator animator;
     public float moveSpeed = 5f;
-    
+    public bool moved = false;
     
 
 
@@ -35,19 +35,19 @@ public class Player : MonoBehaviour
                 animator.SetBool("Walking", true);
                 animator.SetBool("Talking", false);
                 SR.flipX = false;
-                Tut.gow = true;
+                moved = true;
             }
             else if (horizontal < 0)
             {
                 animator.SetBool("Walking", true);
                 animator.SetBool("Talking", false);
                 SR.flipX = true;
-                Tut.gow = true;
+                moved = true;
             }
             else if (vertical != 0)
             {
                 animator.SetBool("Walking", true);
-                Tut.gow = true;
+                moved = true;
             }
             else if (it.talk == true)
             {
@@ -58,6 +58,7 @@ public class Player : MonoBehaviour
             {
                 animator.SetBool("Walking", false);
                 animator.SetBool("Talking", false);
+                moved = false;
             }
             Vector2 movement = new Vector2(horizontal, vertical).normalized;
 

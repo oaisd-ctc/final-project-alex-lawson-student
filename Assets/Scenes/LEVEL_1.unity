@@ -3144,10 +3144,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   it: {fileID: 168489465}
   level: {fileID: 3198960}
+  Tut: {fileID: 0}
   SR: {fileID: 1894051241}
   RD: {fileID: 168489463}
   animator: {fileID: 0}
   moveSpeed: 5
+  moved: 0
 --- !u!4 &168489462
 Transform:
   m_ObjectHideFlags: 0
@@ -3231,7 +3233,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sc: {fileID: 168489466}
+  Tut: {fileID: 0}
   talk: 0
+  talked: 0
 --- !u!114 &168489466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4501,7 +4505,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -628.51, y: -304.5}
+  m_AnchoredPosition: {x: -459.26, y: -230.8}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &227144342
@@ -4551,8 +4555,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

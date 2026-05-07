@@ -2009,6 +2009,7 @@ MonoBehaviour:
   RD: {fileID: 168489463}
   animator: {fileID: 0}
   moveSpeed: 5
+  moved: 0
 --- !u!4 &168489462
 Transform:
   m_ObjectHideFlags: 0
@@ -2095,6 +2096,7 @@ MonoBehaviour:
   sc: {fileID: 168489466}
   Tut: {fileID: 1823945249}
   talk: 0
+  talked: 0
 --- !u!114 &168489466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11364,11 +11366,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: {fileID: 3198960}
+  pr: {fileID: 168489459}
+  it: {fileID: 168489465}
   Tutortext: {fileID: 2043097696}
   tmT: {fileID: 902729768}
   tmG: {fileID: 393166087}
   emG: {fileID: 789308786}
-  animator: {fileID: 0}
   goT: 1
   gow: 1
   targetTime: 0
@@ -12477,8 +12480,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294931529
+  m_fontColor: {r: 0.28773582, g: 0.45608917, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -12561,7 +12564,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 535, y: 255}
+  m_AnchoredPosition: {x: 392.4, y: 176.67}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2097839021
