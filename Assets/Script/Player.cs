@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] Interact it;
     [SerializeField] Level level;
+    [SerializeField] Tutorial Tut;
     public SpriteRenderer SR;
     public Rigidbody2D RD;
     public Animator animator;
@@ -34,16 +35,19 @@ public class Player : MonoBehaviour
                 animator.SetBool("Walking", true);
                 animator.SetBool("Talking", false);
                 SR.flipX = false;
+                Tut.gow = true;
             }
             else if (horizontal < 0)
             {
                 animator.SetBool("Walking", true);
                 animator.SetBool("Talking", false);
                 SR.flipX = true;
+                Tut.gow = true;
             }
             else if (vertical != 0)
             {
                 animator.SetBool("Walking", true);
+                Tut.gow = true;
             }
             else if (it.talk == true)
             {

@@ -43,11 +43,17 @@ public class Level : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        int currentIndex = SceneManager.GetActiveScene().buildIndex;
+
         WT.text = (LvlTime-LvlTimeP).ToString("F2");
 
         if (Input.GetKeyDown(KeyCode.Escape) && end == false)
         {
             SceneManager.LoadScene(0);
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(currentIndex);
         }
         if (Totorlvl == 5)
         {
@@ -76,7 +82,7 @@ public class Level : MonoBehaviour
                     pl.SetActive(false);
                     HPN.text = "People Talked";
                     CmaxN.text = "Best color";
-                    info.text = "Space for next Level        Esc to main menu";
+                    info.text = "R for restart\r\n\r\nSpace for next Level\r\n\r\nEsc for main menu";
                     HP.text = scs.HP.ToString("") + " / " + HpT;
 
                     float[] myArray = { scs.HCg, scs.HCy, scs.HCo, scs.HCr };
@@ -85,15 +91,19 @@ public class Level : MonoBehaviour
                     {
                         case 0:
                             Cmax.text = "Green";
+                            Cmax.color = Color.green;
                             break;
                         case 1:
                             Cmax.text = "Yellow";
+                            Cmax.color = Color.yellow;
                             break;
                         case 2:
                             Cmax.text = "Orange";
+                            Cmax.color = new Color(1f, 0.5f, 0f);
                             break;
                         case 3:
                             Cmax.text = "Red";
+                            Cmax.color = Color.red;
                             break;
                     }
                 }
@@ -106,7 +116,6 @@ public class Level : MonoBehaviour
 
                     if (animE.GetCurrentAnimatorStateInfo(0).normalizedTime > 1f)
                     {
-                        int currentIndex = SceneManager.GetActiveScene().buildIndex;
 
                         if (currentIndex + 1 < SceneManager.sceneCountInBuildSettings)
                         {

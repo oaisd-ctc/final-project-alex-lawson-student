@@ -7,140 +7,152 @@ using UnityEngine;
 public class Tutorial : MonoBehaviour
 {
     [SerializeField] Level level;
-    public TextMeshProUGUI Tutortext;
+    public TextMeshProUGUI Tutortext, tmT;
+    public GameObject tmG, emG;
     private float timetalk = 0;
-    public bool goT = true;
+    public bool goT = true, gow = true;
     public float targetTime = 0;
     public float targettTime = 5;
+    
+
+
+    private void Start()
+    {
+        tmG.SetActive(false);
+        emG.SetActive(false);
+        tmT.text = "";
+    }
     private void Update()
     {
         if(level.end == false)
         {
-            goT = true;
-            if (goT == true)
+            tmT.text = "";
+            if (goT == true && gow == true)
             {
                 timetalk += Time.deltaTime;
             }
-            print(timetalk);
-            if (level.Totorlvl == 0)
+            if (level.Totorlvl == 0f)
             {
                 Tutortext.text = "Welcome to Yappa and We need to Yap. B)";
                 targetTime += targettTime;
                 level.Totorlvl = 1.5f;
             }
 
-            if (level.Totorlvl == 1.5 && timetalk >= targetTime)
+            if (level.Totorlvl == 1.5f && timetalk >= targetTime)
             {
                 Tutortext.text = "But first, we need to move. 0_0";
                 targetTime += targettTime;
-                level.Totorlvl = 2;
+                level.Totorlvl = 2f;
             }
 
-            else if (level.Totorlvl == 2 && timetalk >= targetTime)
+            else if (level.Totorlvl == 2f && timetalk >= targetTime)
             {
                 Tutortext.text = "Use WASD to move.";
                 targetTime += targettTime;
 
-                //goT = false;
+                gow = false;
                 level.Totorlvl = 2.5f;
             }
 
-            else if (level.Totorlvl == 2.5 && timetalk >= targetTime)
+            else if (level.Totorlvl == 2.5f && timetalk >= targetTime && gow == true)
             {
                 Tutortext.text = "Now listen close. ()_()";
                 targetTime += targettTime;
 
-                level.Totorlvl = 3;
+                level.Totorlvl = 3f;
             }
-            else if (level.Totorlvl == 3 && timetalk >= targetTime)
+            else if (level.Totorlvl == 3f && timetalk >= targetTime)
             {
                 Tutortext.text = "We need to find an NPC.";
                 targetTime += targettTime;
 
-                //goT = false;
                 level.Totorlvl = 3.1f;
             }
-            else if (level.Totorlvl == 3.1 && timetalk >= targetTime)
+            else if (level.Totorlvl == 3.1f && timetalk >= targetTime)
             {
                 Tutortext.text = "There will be a SKILL CHECK!!!";
                 targetTime += targettTime;
 
                 level.Totorlvl = 3.2f;
             }
-            else if (level.Totorlvl == 3.2 && timetalk >= targetTime)
+            else if (level.Totorlvl == 3.2f && timetalk >= targetTime)
             {
                 Tutortext.text = "Press SPACE to stop the pin. Remember to Aim for the green bar.";
                 targetTime += targettTime;
 
+                goT = false;
                 level.Totorlvl = 3.3f;
             }
-            else if (level.Totorlvl == 3.3 && timetalk >= targetTime)
+            else if (level.Totorlvl == 3.3f && goT == true)
             {
                 Tutortext.text = "Or else...";
                 targetTime += targettTime;
 
                 level.Totorlvl = 4f;
             }
-            else if (level.Totorlvl == 4 && timetalk >= targetTime)
+            else if (level.Totorlvl == 4f && timetalk >= targetTime)
             {
                 Tutortext.text = "You’ll get embarrassed";
                 targetTime += targettTime;
 
+                emG.SetActive(true);
                 level.Totorlvl = 4.1f;
             }
-            else if (level.Totorlvl == 4.1 && timetalk >= targetTime)
+            else if (level.Totorlvl == 4.1f && timetalk >= targetTime)
             {
-                Tutortext.text = "If embarrassed";
+                Tutortext.text = "If embarrassed is high same for the opposite.";
                 targetTime += targettTime;
 
                 level.Totorlvl = 4.2f;
             }
-            else if (level.Totorlvl == 4.2 && timetalk >= targetTime)
+            else if (level.Totorlvl == 4.2f && timetalk >= targetTime)
             {
                 Tutortext.text = "You’ll move slower";
                 targetTime += targettTime;
 
                 level.Totorlvl = 4.3f;
             }
-            else if (level.Totorlvl == 4.3 && timetalk >= targetTime)
+            else if (level.Totorlvl == 4.3f && timetalk >= targetTime)
             {
                 Tutortext.text = "And the pin moves faster";
                 targetTime += targettTime;
 
                 level.Totorlvl = 4.4f;
             }
-            else if (level.Totorlvl == 4.4 && timetalk >= targetTime)
+            else if (level.Totorlvl == 4.4f && timetalk >= targetTime)
             {
                 Tutortext.text = "And remember...";
 
                 targetTime += targettTime;
                 level.Totorlvl = 4.5f;
             }
-            else if (level.Totorlvl == 4.5 && timetalk >= targetTime)
+            else if (level.Totorlvl == 4.5f && timetalk >= targetTime)
             {
                 Tutortext.text = "You’re on a timer";
 
                 targetTime += targettTime;
                 level.Totorlvl = 4.6f;
             }
-            else if (level.Totorlvl == 4.6 && timetalk >= targetTime)
+            else if (level.Totorlvl == 4.6f && timetalk >= targetTime)
             {
                 Tutortext.text = "Now, go get ‘em Steve";
 
                 targetTime += targettTime;
                 level.Totorlvl = 5f;
             }
-            else if (level.Totorlvl == 5 && timetalk >= targetTime)
+            else if (level.Totorlvl == 5f && timetalk >= targetTime)
             {
                 Tutortext.text = "";
 
                 targetTime += targettTime;
                 level.Totorlvl = 5f;
+                tmG.SetActive(true);
             }
         }
         else
         {
             Tutortext.text = "";
+            tmG.SetActive(true);
         }
     }
 }

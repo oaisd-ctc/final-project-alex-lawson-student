@@ -5,6 +5,7 @@ using UnityEngine;
 public class Interact : MonoBehaviour
 {
     [SerializeField] SkillCheck sc;
+    [SerializeField] Tutorial Tut;
     public bool talk = false;
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -15,6 +16,7 @@ public class Interact : MonoBehaviour
             Animator anim = other.gameObject.GetComponentInParent<Animator>();
             anim.SetBool("Yappa", true);
             talk = true;
+            Tut.goT = true;
         }
     }
     private void OnTriggerStay2D(Collider2D other)
