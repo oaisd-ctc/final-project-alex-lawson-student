@@ -32,7 +32,15 @@ public class PLayexit : MonoBehaviour
 
         if (currentIndex + 1 < SceneManager.sceneCountInBuildSettings)
         {
-            SceneManager.LoadScene(currentIndex + 2);
+            int sceneCount = SceneManager.sceneCountInBuildSettings - 2;
+            int randomIndex;
+            do
+            {
+                randomIndex = Random.Range(2, sceneCount);
+            }
+            while (randomIndex == currentIndex);
+            print(randomIndex);
+            SceneManager.LoadScene(randomIndex);
         }
     }
 }

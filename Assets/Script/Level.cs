@@ -6,6 +6,7 @@ using Unity.Mathematics;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 public class Level : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class Level : MonoBehaviour
     private void Start()
     {
         int currentIndex = SceneManager.GetActiveScene().buildIndex;
+        
 
         if (currentIndex > 1)
         {
@@ -122,7 +124,16 @@ public class Level : MonoBehaviour
                         }
                         else if (currentIndex + 1 < SceneManager.sceneCountInBuildSettings)
                         {
-                            SceneManager.LoadScene(currentIndex + 1);
+                            int sceneCount = SceneManager.sceneCountInBuildSettings - 2;
+                            int randomIndex;
+                            do
+                            {
+                                randomIndex = Random.Range(2, sceneCount);
+                            }
+                            while (randomIndex == currentIndex);
+
+                            SceneManager.LoadScene(randomIndex);
+
                         }
                         else
                         {
