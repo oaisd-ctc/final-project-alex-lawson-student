@@ -23,7 +23,7 @@ public class PLayexit : MonoBehaviour
     }
     void TutorialOnClick()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     void playOnClick()
@@ -32,7 +32,7 @@ public class PLayexit : MonoBehaviour
 
         if (currentIndex + 1 < SceneManager.sceneCountInBuildSettings)
         {
-            SceneManager.LoadScene(currentIndex + 1);
+            SceneManager.LoadScene(currentIndex + 2);
         }
     }
 }

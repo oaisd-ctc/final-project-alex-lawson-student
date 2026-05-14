@@ -9,10 +9,10 @@ public class Tutorial : MonoBehaviour
     [SerializeField] Level level;
     [SerializeField] Player pr;
     [SerializeField] Interact it;
-    public TextMeshProUGUI Tutortext, tmT;
-    public GameObject tmG, emG;
+    public TextMeshProUGUI Tutortext;
+    public GameObject tmG, emG, tmT;
     private float timetalk = 0;
-    public bool goT = true, gow = true;
+    public bool goT = true, gow = true, tfyl = true;
     public float targetTime = 0;
     public float targettTime = 5;
     
@@ -22,20 +22,15 @@ public class Tutorial : MonoBehaviour
     {
         tmG.SetActive(false);
         emG.SetActive(false);
-        tmT.text = "";
+        tmT.SetActive(false);
     }
     private void Update()
     {
-        gow = pr.moved;
-        goT = it.talked;
+        
+        
 
         if (level.end == false)
         {
-            tmT.text = "";
-            if (goT == true && gow == true)
-            {
-                timetalk += Time.deltaTime;
-            }
             if (level.Totorlvl == 0f)
             {
                 Tutortext.text = "Welcome to Yappa and We need to Yap. B)";
@@ -55,8 +50,13 @@ public class Tutorial : MonoBehaviour
                 Tutortext.text = "Use WASD to move.";
                 targetTime += targettTime;
 
+                gow = pr.moved;
                 gow = false;
                 level.Totorlvl = 2.5f;
+            }
+            else if(gow == false)
+            {
+                gow = pr.moved;
             }
 
             else if (level.Totorlvl == 2.5f && timetalk >= targetTime && gow == true)
@@ -68,12 +68,18 @@ public class Tutorial : MonoBehaviour
             }
             else if (level.Totorlvl == 3f && timetalk >= targetTime)
             {
-                Tutortext.text = "We need to find an NPC.";
+                Tutortext.text = "We need to find an NPC. and go YAPPA to him B)";
                 targetTime += targettTime;
 
                 level.Totorlvl = 3.1f;
+                goT = it.talked;
+                goT = false;
             }
-            else if (level.Totorlvl == 3.1f && timetalk >= targetTime)
+            else if (goT == false)
+            {
+                goT = it.talked;
+            }
+            else if (level.Totorlvl == 3.1f && timetalk >= targetTime && goT == true)
             {
                 Tutortext.text = "There will be a SKILL CHECK!!!";
                 targetTime += targettTime;
@@ -85,10 +91,10 @@ public class Tutorial : MonoBehaviour
                 Tutortext.text = "Press SPACE to stop the pin. Remember to Aim for the green bar.";
                 targetTime += targettTime;
 
-                goT = false;
                 level.Totorlvl = 3.3f;
             }
-            else if (level.Totorlvl == 3.3f && goT == true)
+            
+            else if (level.Totorlvl == 3.3f && timetalk >= targetTime)
             {
                 Tutortext.text = "Or else...";
                 targetTime += targettTime;
@@ -105,7 +111,7 @@ public class Tutorial : MonoBehaviour
             }
             else if (level.Totorlvl == 4.1f && timetalk >= targetTime)
             {
-                Tutortext.text = "If embarrassed is high same for the opposite.";
+                Tutortext.text = "If embarrassed is high.";
                 targetTime += targettTime;
 
                 level.Totorlvl = 4.2f;
@@ -152,12 +158,18 @@ public class Tutorial : MonoBehaviour
                 targetTime += targettTime;
                 level.Totorlvl = 5f;
                 tmG.SetActive(true);
+                tmT.SetActive(true);
+            }
+            if (goT == true && gow == true || tfyl == true)
+            {
+                timetalk += Time.deltaTime;
             }
         }
         else
         {
             Tutortext.text = "";
             tmG.SetActive(true);
+            tmT.SetActive(true);
         }
     }
 }

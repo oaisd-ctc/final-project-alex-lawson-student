@@ -24,7 +24,7 @@ public class Level : MonoBehaviour
     {
         int currentIndex = SceneManager.GetActiveScene().buildIndex;
 
-        if (currentIndex > 0)
+        if (currentIndex > 1)
         {
             Totorlvl = 5;
         }
@@ -80,9 +80,9 @@ public class Level : MonoBehaviour
                     LvlTime = 0;
 
                     pl.SetActive(false);
-                    HPN.text = "People Talked";
-                    CmaxN.text = "Best color";
-                    info.text = "R for restart\r\n\r\nSpace for next Level\r\n\r\nEsc for main menu";
+                    HPN.text = "[score]\r\n\r\n[People Talked]";
+                    CmaxN.text = "[Best color]";
+                    info.text = "[R for reload Level]\r\n\r\n[Space for next Level]\r\n\r\n[Esc to main menu]";
                     HP.text = scs.HP.ToString("") + " / " + HpT;
 
                     float[] myArray = { scs.HCg, scs.HCy, scs.HCo, scs.HCr };
@@ -116,8 +116,11 @@ public class Level : MonoBehaviour
 
                     if (animE.GetCurrentAnimatorStateInfo(0).normalizedTime > 1f)
                     {
-
-                        if (currentIndex + 1 < SceneManager.sceneCountInBuildSettings)
+                        if(currentIndex == 1)
+                        {
+                            SceneManager.LoadScene(0);
+                        }
+                        else if (currentIndex + 1 < SceneManager.sceneCountInBuildSettings)
                         {
                             SceneManager.LoadScene(currentIndex + 1);
                         }
@@ -128,7 +131,7 @@ public class Level : MonoBehaviour
                             HPN.text = "";
                             info.text = "";
                             CmaxN.text = "";
-                            SceneManager.LoadScene(1);
+                            SceneManager.LoadScene(0);
 
                         }
 
