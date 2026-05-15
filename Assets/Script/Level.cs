@@ -122,9 +122,9 @@ public class Level : MonoBehaviour
                         {
                             SceneManager.LoadScene(0);
                         }
-                        else if (currentIndex + 1 < SceneManager.sceneCountInBuildSettings)
+                        else
                         {
-                            int sceneCount = SceneManager.sceneCountInBuildSettings - 2;
+                            int sceneCount = SceneManager.sceneCountInBuildSettings;
                             int randomIndex;
                             do
                             {
@@ -133,16 +133,6 @@ public class Level : MonoBehaviour
                             while (randomIndex == currentIndex);
 
                             SceneManager.LoadScene(randomIndex);
-
-                        }
-                        else
-                        {
-                            Cmax.text = "";
-                            HP.text = "";
-                            HPN.text = "";
-                            info.text = "";
-                            CmaxN.text = "";
-                            SceneManager.LoadScene(0);
 
                         }
 

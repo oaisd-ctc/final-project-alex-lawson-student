@@ -32,7 +32,7 @@ public class PLayexit : MonoBehaviour
 
         if (currentIndex + 1 < SceneManager.sceneCountInBuildSettings)
         {
-            int sceneCount = SceneManager.sceneCountInBuildSettings - 2;
+            int sceneCount = SceneManager.sceneCountInBuildSettings;
             int randomIndex;
             do
             {
